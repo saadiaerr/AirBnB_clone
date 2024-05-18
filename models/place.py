@@ -10,8 +10,8 @@ class Place(BaseModel):
     Represent place class
 
     Attributes:
-        city_id (str): id of City 
-        user_id (str): is of User 
+        city_id (str): id of City
+        user_id (str): is of User
         name (str): name of place
         description (str): description of place
         number_rooms (int): Number of rooms

@@ -3,7 +3,6 @@
 """ define the BaseModel class module"""
 
 import models
-
 from uuid import uuid4
 from datetime import datetime
 
@@ -16,11 +15,13 @@ class BaseModel:
 
     Attributes:
         id (str): A unique identifier generated for the instance of BaseModel.
-        created_at (datetime): A datetime object representing the creation time of the BaseModel instance.
-        updated_at (datetime): A datetime object representing the time of the last update to the BaseModel instance.
+        created_at (datetime): A datetime object representing the creation time
+            of the BaseModel instance.
+        updated_at (datetime): A datetime object representing the time of the
+            last update to the BaseModel instance.
 
     Methods:
-        __init__(*args, **kwargs): initializes a new instance of basemodel
+        __init__(*args, **kwargs): initializes a new instance of BaseModel
         __str__(): returns a string representation of the BaseModel instance
         save(): updates attribute with the current datetime
         to_dict(): returns a dictionary containing all keys and their values
@@ -55,8 +56,8 @@ class BaseModel:
         """
         Return the print/str representation of the BaseModel instance
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
-                                     self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """
@@ -70,9 +71,7 @@ class BaseModel:
 
     def to_dict(self):
         """
-        Returns the  dictionary of  keys/values of the BaseModel
-        instance
-
+        Returns the dictionary of keys/values of the BaseModel instance
         """
         obj_dict = self.__dict__.copy()
 

@@ -8,6 +8,10 @@ from models.base_model import BaseModel
 class Amenity(BaseModel):
     """
     Represent an amenity.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3a286b9e7ed6d43cf49fabf52e39dbd0bc736044
     Attributes:
         name (str): The name of the amenity.
 

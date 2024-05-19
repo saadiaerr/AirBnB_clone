@@ -1,29 +1,33 @@
 #!/usr/bin/python3
+"""
+User Module
+"""
 
-"""define User class mod"""
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
+from models.base_model import BaseModel, Base
 
-from models.base_model import BaseModel
 
-
-class User(BaseModel):
+class User(BaseModel, Base):
     """
     User class
 
     Attributes:
-        email (str): users email address
-        password (str): users password
-        first_name (str): user first name
-        last_name (str): user last name
+        __tablename__ (str): The name of the MySQL table to store Users
+        email (sqlalchemy String): The user's email address
+        password (sqlalchemy String): The user's password
+        first_name (sqlalchemy String): The user's first name
+        last_name (sqlalchemy String): The user's last name
+        places (sqlalchemy relationship): The User-Place relationship
+        reviews (sqlalchemy relationship): The User-Review relationship
 
     Methods:
-        __init__(*args, **kwargs): initializes a User instance
+        __init__(self, *args, **kwargs): Initializes a User instance
     """
-
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
-
-    def __init__(self, *args, **kwargs):
-        """Initializes a User instance"""
-        super().__init__(*args, **kwargs)
+    __tablename__ = "users"
+    email = Column(String(128), nullable=False)
+    password = Column(String(128), nullable=False)
+    first_name = Column(String(128))
+    last_name = Column(String(128))
+    places = relationship("Place", backref="user", cascade="delete")
+    reviews = relationship("Review", backref="user", cascade="delete")
